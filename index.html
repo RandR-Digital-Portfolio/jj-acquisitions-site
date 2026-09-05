@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>J&J Acquisitions | Digital Business Tools</title>
+  <meta name="description" content="J&J Acquisitions creates practical digital tools, templates, and acquisition-analysis resources for evaluating and operating small digital businesses." />
+  <style>
+    :root {
+      --ink: #18212f;
+      --muted: #5d6775;
+      --paper: #f7f9fc;
+      --card: #ffffff;
+      --accent: #3a63d8;
+      --accent-dark: #2346a3;
+      --line: #dfe5ee;
+      --soft: #eef3ff;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.6;
+    }
+    a { color: var(--accent-dark); }
+    .shell { width: min(1080px, calc(100% - 32px)); margin: 0 auto; }
+    header {
+      position: sticky;
+      top: 0;
+      background: rgba(255,255,255,.96);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(8px);
+      z-index: 10;
+    }
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 68px;
+      gap: 20px;
+    }
+    .brand { font-weight: 800; letter-spacing: -.02em; font-size: 1.1rem; }
+    .navlinks { display: flex; gap: 18px; flex-wrap: wrap; }
+    .navlinks a { text-decoration: none; color: var(--ink); font-size: .95rem; }
+    .hero {
+      padding: 88px 0 72px;
+      background: linear-gradient(180deg, #ffffff 0%, var(--paper) 100%);
+    }
+    .eyebrow {
+      display: inline-block;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: var(--soft);
+      color: var(--accent-dark);
+      font-weight: 700;
+      font-size: .82rem;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+    h1 {
+      max-width: 820px;
+      margin: 18px 0 18px;
+      font-size: clamp(2.4rem, 7vw, 4.8rem);
+      line-height: 1.03;
+      letter-spacing: -.045em;
+    }
+    .hero p { max-width: 760px; font-size: 1.15rem; color: var(--muted); }
+    .cta {
+      display: inline-block;
+      margin-top: 16px;
+      padding: 12px 18px;
+      border-radius: 10px;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+    }
+    section { padding: 64px 0; }
+    section h2 { font-size: 2rem; letter-spacing: -.025em; margin: 0 0 14px; }
+    .lead { color: var(--muted); max-width: 780px; }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 28px; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 10px 30px rgba(28, 46, 80, .05);
+    }
+    .card h3 { margin: 0 0 8px; }
+    .card p { color: var(--muted); margin-bottom: 0; }
+    .product {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 28px;
+      align-items: start;
+      margin-top: 28px;
+    }
+    .product ul { padding-left: 20px; }
+    .product li { margin: 8px 0; }
+    .tag {
+      display: inline-block;
+      margin-bottom: 12px;
+      color: var(--accent-dark);
+      font-weight: 700;
+    }
+    .policy-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-top: 26px; }
+    .notice {
+      border-left: 4px solid var(--accent);
+      background: var(--soft);
+      padding: 16px 18px;
+      border-radius: 8px;
+      margin-top: 24px;
+    }
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 30px 0 50px;
+      color: var(--muted);
+      font-size: .92rem;
+    }
+    @media (max-width: 760px) {
+      .navlinks { display: none; }
+      .hero { padding-top: 64px; }
+      .grid, .product, .policy-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="shell">
+      <nav aria-label="Primary navigation">
+        <div class="brand">J&amp;J Acquisitions</div>
+        <div class="navlinks">
+          <a href="#about">About</a>
+          <a href="#products">Products</a>
+          <a href="#delivery">Delivery &amp; policies</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="shell">
+        <span class="eyebrow">Digital business tools</span>
+        <h1>Better tools for evaluating what is actually worth owning.</h1>
+        <p>J&amp;J Acquisitions creates downloadable business tools, templates, and software-related resources for evaluating and operating small digital businesses. Our focus is practical decision support: cash flow, recurring workload, automation, transferability, evidence quality, and operating risk.</p>
+        <a class="cta" href="#products">View our first product in preparation</a>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="shell">
+        <h2>About J&amp;J Acquisitions</h2>
+        <p class="lead">We build practical digital resources around the same questions we use in our own acquisition research. The goal is not to produce generic business paperwork. It is to turn difficult ownership decisions into repeatable, auditable analysis.</p>
+        <div class="grid">
+          <article class="card">
+            <h3>Acquisition analysis</h3>
+            <p>Tools for comparing price, cash flow, workload, evidence quality, and operating resilience.</p>
+          </article>
+          <article class="card">
+            <h3>Automation-aware</h3>
+            <p>Resources that explicitly account for recurring human effort instead of treating owner time as free.</p>
+          </article>
+          <article class="card">
+            <h3>Digital delivery</h3>
+            <p>When products are offered for sale, they are intended to be delivered electronically after successful checkout through secure third-party payment and fulfillment services.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="products" style="background:#fff; border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
+      <div class="shell">
+        <h2>Product in preparation</h2>
+        <div class="product">
+          <article>
+            <span class="tag">FE-P001</span>
+            <h3 style="font-size:1.65rem; margin-top:0;">Low-Touch Acquisition Scorecard</h3>
+            <p>A downloadable acquisition-analysis workbook being prepared to help prospective buyers compare small digital businesses and assets on more than headline revenue or valuation.</p>
+            <ul>
+              <li>Cash-flow and purchase-price economics</li>
+              <li>Recurring human workload and owner-time burden</li>
+              <li>Automation coverage and maintenance independence</li>
+              <li>Transferability, ownership, and evidence-quality checks</li>
+              <li>Operational risk and resilience scoring</li>
+            </ul>
+            <div class="notice"><strong>Status:</strong> FE-P001 is currently in preparation and is not yet offered for live purchase through this website.</div>
+          </article>
+          <aside class="card">
+            <h3>Format</h3>
+            <p>Digital download.</p>
+            <h3 style="margin-top:18px;">Payment</h3>
+            <p>When live sales begin, customers will be charged at checkout through our payment provider.</p>
+            <h3 style="margin-top:18px;">Delivery</h3>
+            <p>Electronic delivery will follow successful payment.</p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section id="delivery">
+      <div class="shell">
+        <h2>Delivery, refunds, and privacy</h2>
+        <p class="lead">We aim to keep digital purchases simple and understandable.</p>
+        <div class="policy-grid">
+          <article class="card">
+            <h3>Digital delivery</h3>
+            <p>Digital products are intended to be delivered electronically after successful payment. Delivery may be handled by a specialist digital-fulfillment provider. No physical shipment is required.</p>
+          </article>
+          <article class="card">
+            <h3>Refunds</h3>
+            <p>If a purchased digital product cannot be accessed, is defective, or is materially different from its description, contact us so we can correct the issue or provide an appropriate refund. Other refund requests are reviewed case by case and remain subject to applicable law and any product-specific terms shown at checkout.</p>
+          </article>
+          <article class="card">
+            <h3>Payments</h3>
+            <p>Payment processing is intended to be handled by Stripe. This website does not store card numbers or banking credentials.</p>
+          </article>
+          <article class="card">
+            <h3>Privacy</h3>
+            <p>Customer information is used only as reasonably necessary to process orders, deliver products, provide support, prevent fraud, maintain business records, and meet legal obligations. J&amp;J Acquisitions does not sell customer personal information.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" style="background:#fff; border-top:1px solid var(--line);">
+      <div class="shell">
+        <h2>Customer support</h2>
+        <p class="lead">Questions about a product, delivery, or a future purchase can be sent to our support email.</p>
+        <div class="notice">
+          <strong>Support email:</strong> <a href="mailto:Randracquisitions42@gmail.com">Randracquisitions42@gmail.com</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="shell">
+      <strong>J&amp;J Acquisitions</strong><br />
+      Digital business tools, templates, acquisition-analysis resources, and software-related products.
+    </div>
+  </footer>
+</body>
+</html>

@@ -246,10 +246,11 @@ function renderArticleBody(article) {
 }
 
 function assertArticle(article, pageHtml, bodyHtml) {
-  const text = htmlText(pageHtml);
+  const text = htmlText(pageHtml).replace(/\s+([,.;:!?])/g, "$1");
   for (const chunk of markdownChunks(article.body)) {
-    if (!text.includes(chunk)) {
-      throw new Error(`${article.file}: rendered page is missing: ${chunk.slice(0, 140)}`);
+    const expected = chunk.replace(/\s+([,.;:!?])/g, "$1");
+    if (!text.includes(expected)) {
+      throw new Error(`${article.file}: rendered page is missing: ${expected.slice(0, 140)}`);
     }
   }
   for (const phrase of FORBIDDEN) {

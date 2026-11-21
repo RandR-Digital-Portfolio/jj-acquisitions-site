@@ -14,22 +14,24 @@ Source: The Register, "Infoblox customer and staff data exposed in Sharepoint br
 
 ## What was reported
 
-On Nov 16, The Register reported that networking and security company Infoblox is investigating a third-party breach that gave criminals access to sensitive customer and staff data.
+On Nov 16, The Register reported that networking and security company Infoblox is investigating a third-party breach. [TechCrunch reported the same day](https://techcrunch.com/2026/11/16/cyber-giant-infoblox-confirms-security-incident-after-hackers-access-company-information/), and Infoblox gave both newsrooms the same sentence.
 
-A company spokesperson confirmed the basic outline to The Register: "Infoblox is investigating a security event involving unauthorized access to certain company information through a compromised third-party data migration vendor."
+A company spokesperson told The Register, and told TechCrunch separately: "Infoblox is investigating a security event involving unauthorized access to certain company information through a compromised third-party data migration vendor."
 
-According to The Register's sources, that data migration vendor had trusted access to Infoblox's SharePoint system. The intruders used the vendor's accounts and access to pull data directly out of Microsoft SharePoint.
+Neither outlet names the vendor. I am not going to guess at it. TechCrunch, citing an Infoblox notification and two people familiar with the incident, says the vendor provides SharePoint data-migration services, and that one of those people said sensitive customer data was taken. One person also told TechCrunch that Infoblox had ended the work. TechCrunch says the spokesperson did not comment on that, so I am not treating the termination as confirmed.
 
-What was in there, per the report:
+The Register, citing its own sources, is more specific about the path: the vendor had trusted access to Infoblox's SharePoint system, and the intruders used the vendor's accounts to pull data directly out of Microsoft SharePoint. I have not found a second outlet reporting that account-level detail on its own. TechRadar's account follows The Register and says the attackers "apparently" used the vendor's access.
 
-- **Customer configuration data.** Configuration information related to some customers' NIOS (Network Identity Operating System) deployments. The Register describes these as saved snapshots of customers' network data, such as DNS and DHCP configurations, Grid databases, and reporting logs, which can be used to fully recover an appliance or grid after a failure or a bad upgrade.
-- **Employee data.** According to an email from CEO Scott Harrell to employees, which The Register says it has seen, compromised details include direct deposit information, contact details, dates of birth, and Social Security numbers for employees and their dependents.
+What The Register says was in the data, which is more detail than the statement TechCrunch printed:
 
-Infoblox said it "immediately activated" incident response, took steps to contain the incident, and hired outside cybersecurity experts. The spokesperson said the company has sent notifications and that, based on the investigation so far, there is "no indication that any Infoblox products, cloud services, software updates or build-and-release processes were involved."
+- **Customer configuration data.** Configuration information related to some customers' NIOS (Network Identity Operating System) deployments. The Register describes these as saved snapshots of customers' network data, such as DNS and DHCP configurations, Grid databases, and reporting logs, which can be used to fully recover an appliance or grid after a failure or a bad upgrade. TechCrunch's source said sensitive customer data was taken, and did not describe these snapshots.
+- **Employee data.** The Register says it has seen an email from CEO Scott Harrell to employees listing direct deposit information, contact details, dates of birth, and Social Security numbers for employees and their dependents. I have not found that email, or a second reporter who says they saw it. TechRadar repeats The Register on this point rather than citing the email itself.
 
-Employees were warned to watch for phishing, vishing, and fraud, and were offered two years of credit monitoring and identity protection for themselves and their dependents. Infoblox declined to answer The Register's more detailed questions, including what types of data were exposed and how many employees and customers might be affected. The Register said it would update the story as it learns more.
+Both The Register and TechCrunch quote Infoblox saying it "immediately activated" incident response, took steps to contain the incident, and brought in outside cybersecurity experts, and that there is "no indication that any Infoblox products, cloud services, software updates or build-and-release processes were involved." The Register adds that the spokesperson said notifications had been sent. TechCrunch also describes an Infoblox notification about the breach.
 
-That is the full extent of what the report establishes. The migration vendor is not named in the article, and I am not going to guess at it.
+The staff warning about phishing, vishing, and fraud, and the offer of two years of credit monitoring, are in The Register. I have not found them in TechCrunch's story. The Register says Infoblox declined questions on what types of data were exposed and how many employees and customers might be affected. TechCrunch separately says Infoblox would not say how many customers were affected, or whether it knew.
+
+That is the overlap, and the gap. The Register said it would update its story as it learned more.
 
 ## Why this one caught my attention
 
@@ -37,7 +39,7 @@ The lesson here sits one layer out from the company in the headline: the path in
 
 In our view, data migration vendors are worth a closer look because of what the job requires. To move data from one place to another, you generally need broad read access to the place the data lives. That is the opposite of least privilege, and it is granted on purpose, usually for a project with a defined start and end. The risk question is less "is this vendor trustworthy?" and more "what can someone do with this vendor's access if they get hold of it, and for how long does that access exist?"
 
-The Register's account suggests the answer, in this case, was: quite a lot. Customer recovery snapshots and payroll-grade employee records were reachable from the same SharePoint environment.
+The Register's account suggests the answer, in this case, was: quite a lot. On that account, customer recovery snapshots were pulled from SharePoint. The employee records are a further claim in the same story, tied to an email The Register says it saw, and I would not place those payroll details in SharePoint on the strength of that story alone.
 
 ## What I think teams should take from it
 
@@ -47,11 +49,11 @@ The article does not tell us how the vendor's access was scoped, when it was gra
 
 **2. Put an end date on access, not just on the contract.** If a vendor needs access for a migration, the access should expire when the migration does. A calendar reminder is better than nothing; automatic expiry is better than a reminder.
 
-**3. Ask where sensitive files actually live.** Recovery snapshots of customer networks and employee Social Security numbers are very different kinds of data. The report says both were taken from SharePoint. Collaboration platforms tend to accumulate everything over time. It is worth knowing what a given vendor account could actually read, not what it was supposed to read.
+**3. Ask where sensitive files actually live.** Recovery snapshots of customer networks and employee Social Security numbers are very different kinds of data. The Register says the snapshots were taken from SharePoint. It does not say the payroll file was. Collaboration platforms tend to accumulate everything over time. It is worth knowing what a given vendor account could actually read, not what it was supposed to read.
 
 **4. Add vendor-access questions to your own security questionnaire.** If you send questionnaires to your vendors, consider asking how *they* manage their own third parties with access to your data. If you answer questionnaires from customers, expect that question to show up more often after stories like this one.
 
-**5. Keep the communication honest and specific.** One thing I'd note in Infoblox's favor, based on what was reported: the company confirmed the event, named the general route (a compromised third-party vendor), stated what its investigation had and had not found, and sent notifications. There are open questions it declined to answer, which is frustrating for anyone trying to assess impact. But a clear, bounded statement is more useful to customers than silence.
+**5. Keep the communication honest and specific.** One thing I'd note in Infoblox's favor, based on what both newsrooms were told: the company confirmed the event, named the general route (a compromised third-party vendor), and stated what its investigation had and had not found about its own products. The Register says notifications went out. There are open questions it declined to answer, which is frustrating for anyone trying to assess impact. But a clear, bounded statement is more useful to customers than silence.
 
 ## The small-company angle
 
@@ -61,7 +63,9 @@ A simple exercise for a small team: list every outside party that has had login 
 
 ## What we don't know yet
 
-To be clear about the limits here: the report does not say how the vendor was compromised, how many customers had configuration data taken, or whether any of that data has been misused. Infoblox says its products, cloud services, and build processes show no sign of involvement based on its investigation to date. I'd treat any claims beyond what The Register reported as speculation until Infoblox or the reporter says more.
+To be clear about the limits here: neither The Register nor TechCrunch says how the vendor was compromised, how many customers had data taken, or whether any of that data has been misused. Infoblox says its products, cloud services, and build processes show no sign of involvement based on its investigation to date. The NIOS snapshot description and the employee-data fields are The Register's. I'd treat anything past what those two stories actually report as speculation until Infoblox or one of the reporters says more.
+
+TechCrunch's account: https://techcrunch.com/2026/11/16/cyber-giant-infoblox-confirms-security-incident-after-hackers-access-company-information/
 
 The lesson here is that trusted vendor access is still access, and an attacker who obtains it does not need to break in.
 

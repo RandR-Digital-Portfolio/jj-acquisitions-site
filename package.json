@@ -1,0 +1,11 @@
+{
+  "name": "jj-acquisitions-site",
+  "private": true,
+  "description": "Public website for J&J Acquisitions",
+  "scripts": {
+    "build": "node scripts/build-insights.js"
+  },
+  "devDependencies": {
+    "marked": "^15.0.12"
+  }
+}

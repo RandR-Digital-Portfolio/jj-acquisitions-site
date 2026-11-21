@@ -3,139 +3,29 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>J&J Acquisitions | Digital Business Tools</title>
-  <meta name="description" content="J&J Acquisitions creates practical digital tools, templates, and acquisition-analysis resources for evaluating and operating small digital businesses." />
-  <style>
-    :root {
-      --ink: #18212f;
-      --muted: #5d6775;
-      --paper: #f7f9fc;
-      --card: #ffffff;
-      --accent: #3a63d8;
-      --accent-dark: #2346a3;
-      --line: #dfe5ee;
-      --soft: #eef3ff;
-    }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: var(--ink);
-      background: var(--paper);
-      line-height: 1.6;
-    }
-    a { color: var(--accent-dark); }
-    .shell { width: min(1080px, calc(100% - 32px)); margin: 0 auto; }
-    header {
-      position: sticky;
-      top: 0;
-      background: rgba(255,255,255,.96);
-      border-bottom: 1px solid var(--line);
-      backdrop-filter: blur(8px);
-      z-index: 10;
-    }
-    nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      min-height: 68px;
-      gap: 20px;
-    }
-    .brand { font-weight: 800; letter-spacing: -.02em; font-size: 1.1rem; }
-    .navlinks { display: flex; gap: 18px; flex-wrap: wrap; }
-    .navlinks a { text-decoration: none; color: var(--ink); font-size: .95rem; }
-    .hero {
-      padding: 88px 0 72px;
-      background: linear-gradient(180deg, #ffffff 0%, var(--paper) 100%);
-    }
-    .eyebrow {
-      display: inline-block;
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: var(--soft);
-      color: var(--accent-dark);
-      font-weight: 700;
-      font-size: .82rem;
-      text-transform: uppercase;
-      letter-spacing: .08em;
-    }
-    h1 {
-      max-width: 820px;
-      margin: 18px 0 18px;
-      font-size: clamp(2.4rem, 7vw, 4.8rem);
-      line-height: 1.03;
-      letter-spacing: -.045em;
-    }
-    .hero p { max-width: 760px; font-size: 1.15rem; color: var(--muted); }
-    .cta {
-      display: inline-block;
-      margin-top: 16px;
-      padding: 12px 18px;
-      border-radius: 10px;
-      background: var(--accent);
-      color: #fff;
-      text-decoration: none;
-      font-weight: 700;
-    }
-    section { padding: 64px 0; }
-    section h2 { font-size: 2rem; letter-spacing: -.025em; margin: 0 0 14px; }
-    .lead { color: var(--muted); max-width: 780px; }
-    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 28px; }
-    .card {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      padding: 24px;
-      box-shadow: 0 10px 30px rgba(28, 46, 80, .05);
-    }
-    .card h3 { margin: 0 0 8px; }
-    .card p { color: var(--muted); margin-bottom: 0; }
-    .product {
-      display: grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 28px;
-      align-items: start;
-      margin-top: 28px;
-    }
-    .product ul { padding-left: 20px; }
-    .product li { margin: 8px 0; }
-    .tag {
-      display: inline-block;
-      margin-bottom: 12px;
-      color: var(--accent-dark);
-      font-weight: 700;
-    }
-    .policy-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-top: 26px; }
-    .notice {
-      border-left: 4px solid var(--accent);
-      background: var(--soft);
-      padding: 16px 18px;
-      border-radius: 8px;
-      margin-top: 24px;
-    }
-    footer {
-      border-top: 1px solid var(--line);
-      padding: 30px 0 50px;
-      color: var(--muted);
-      font-size: .92rem;
-    }
-    @media (max-width: 760px) {
-      .navlinks { display: none; }
-      .hero { padding-top: 64px; }
-      .grid, .product, .policy-grid { grid-template-columns: 1fr; }
-    }
-  </style>
+  <title>J&amp;J Acquisitions | Digital Business Tools</title>
+  <meta name="description" content="J&amp;J Acquisitions creates practical digital tools, templates, and acquisition-analysis resources for evaluating and operating small digital businesses." />
+  <link rel="canonical" href="https://randr-digital-portfolio.github.io/jj-acquisitions-site/" />
+  <meta property="og:title" content="J&amp;J Acquisitions | Digital Business Tools" />
+  <meta property="og:description" content="J&amp;J Acquisitions creates practical digital tools, templates, and acquisition-analysis resources for evaluating and operating small digital businesses." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://randr-digital-portfolio.github.io/jj-acquisitions-site/" />
+  <meta property="og:site_name" content="J&amp;J Acquisitions" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="J&amp;J Acquisitions | Digital Business Tools" />
+  <meta name="twitter:description" content="J&amp;J Acquisitions creates practical digital tools, templates, and acquisition-analysis resources for evaluating and operating small digital businesses." />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <header>
     <div class="shell">
       <nav aria-label="Primary navigation">
-        <div class="brand">J&amp;J Acquisitions</div>
+        <a class="brand" href="./">J&amp;J Acquisitions</a>
         <div class="navlinks">
           <a href="#about">About</a>
           <a href="#products">Products</a>
           <a href="#delivery">Delivery &amp; policies</a>
+          <a href="insights/">Insights</a>
           <a href="#contact">Contact</a>
         </div>
       </nav>
@@ -242,6 +132,9 @@
     <div class="shell">
       <strong>J&amp;J Acquisitions</strong><br />
       Digital business tools, templates, acquisition-analysis resources, and software-related products.
+      <nav class="footer-links" aria-label="Footer">
+        <a href="insights/">Insights</a>
+      </nav>
     </div>
   </footer>
 </body>

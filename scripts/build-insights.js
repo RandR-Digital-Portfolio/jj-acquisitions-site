@@ -8,7 +8,22 @@ const OUTPUT_DIR = path.join(ROOT, "insights");
 const SITE_ORIGIN = "https://randr-digital-portfolio.github.io/jj-acquisitions-site";
 const SITE_NAME = "J&J Acquisitions";
 const REQUIRED = ["title", "date", "slug", "summary", "author"];
-const FORBIDDEN = ["X teaser", "Found via:", "Word count:", "DRAFT for Joe", "TLDR "];
+const FORBIDDEN = [
+  "X teaser",
+  "Found via:",
+  "Word count:",
+  "DRAFT for Joe",
+  "TLDR ",
+  "AI-generated",
+  "reviewed by a human",
+  "This is my opinion",
+  "This post was drafted",
+  "not legal or security advice",
+  "not investment advice",
+  "What follows is my opinion",
+  "Corrections welcome",
+];
+const KICKER = "Analysis";
 
 marked.setOptions({ gfm: true, breaks: false });
 
@@ -222,24 +237,12 @@ function renderArticleBody(article) {
   if (typeof html !== "string") {
     throw new Error(`${article.file}: markdown parser did not return HTML`);
   }
-  const match = html.match(/<p><em>(Written by Juno,[\s\S]*?)<\/em><\/p>\n?/);
-  if (!match) {
-    throw new Error(`${article.file}: add an italic authorship line beginning "Written by Juno,"`);
-  }
-  const disclaimerText = htmlText(`<p>${match[1]}</p>`);
-  if (!disclaimerText.includes(article.author)) {
-    throw new Error(`${article.file}: authorship line must include "${article.author}"`);
-  }
-  if (!/AI-generated/i.test(disclaimerText)) {
-    throw new Error(`${article.file}: authorship line must say that the article is AI-generated`);
-  }
-  let rest = html.replace(match[0], "");
-  const heading = rest.match(/<h1\b[^>]*>[\s\S]*?<\/h1>\n?/);
+  const heading = html.match(/<h1\b[^>]*>[\s\S]*?<\/h1>\n?/);
   if (!heading) throw new Error(`${article.file}: missing rendered title`);
+  const rest = html.replace(heading[0], "");
   const dateline = `<p class="dateline"><time datetime="${article.date}">${escapeHtml(article.displayDate)}</time></p>\n`;
-  rest = rest.replace(heading[0], `${heading[0]}${dateline}`);
-  const label = `<aside class="ai-label" role="note"><span class="eyebrow">AI-generated</span><p><em>${match[1]}</em></p></aside>`;
-  return `${label}\n<div class="article-body">\n${rest}</div>`;
+  const byline = `<p class="byline">Written by ${escapeHtml(article.author)}.</p>\n`;
+  return `<div class="article-body">\n<p class="kicker">${escapeHtml(KICKER)}</p>\n${heading[0]}${dateline}${rest}${byline}</div>`;
 }
 
 function assertArticle(article, pageHtml, bodyHtml) {
@@ -261,19 +264,23 @@ function assertArticle(article, pageHtml, bodyHtml) {
       throw new Error(`${article.file}: missing source link ${clean}`);
     }
   }
-  if (!bodyHtml.includes('class="ai-label"') || !text.includes(article.author)) {
-    throw new Error(`${article.file}: AI authorship label is not visible`);
+  const byline = `Written by ${article.author}.`;
+  if (!htmlText(bodyHtml).endsWith(byline)) {
+    throw new Error(`${article.file}: byline is not at the end of the article`);
+  }
+  if (!bodyHtml.includes('class="byline"') || !bodyHtml.includes('class="kicker"')) {
+    throw new Error(`${article.file}: missing kicker or byline markup`);
   }
 }
 
 function renderIndex(articles) {
   const description =
-    "AI-generated articles by Juno, J&J Acquisitions' AI analyst, on vendor risk, security incidents, and small software worth owning.";
+    "Analysis of vendor risk, security incidents, and the small software products worth owning.";
   const cards = articles
     .map(
       (article) => `<article class="card">
+          <p class="kicker">${escapeHtml(KICKER)}</p>
           <time datetime="${article.date}">${escapeHtml(article.displayDate)}</time>
-          <p class="card-author">${escapeHtml(article.author)}</p>
           <h2><a href="${article.slug}/">${escapeHtml(article.title)}</a></h2>
           <p>${escapeHtml(article.summary)}</p>
           <a class="read-more" href="${article.slug}/">Read article</a>
@@ -283,30 +290,32 @@ function renderIndex(articles) {
   const main = `<section>
       <div class="shell">
         <p class="breadcrumb"><a href="../">Home</a> <span aria-hidden="true">/</span> Insights</p>
-        <span class="eyebrow">AI-generated</span>
+        <p class="kicker">${escapeHtml(KICKER)}</p>
         <h1 class="page-title">Insights</h1>
-        <p class="lead">Written by Juno, J&amp;J Acquisitions' AI analyst. Notes on vendor risk, security incidents, and the small software products worth owning. Each article is AI-generated.</p>
+        <p class="lead">Notes on vendor risk, security incidents, and the small software products worth owning.</p>
         <div class="insights-list">
           ${cards}
         </div>
       </div>
     </section>`;
-  return renderDocument({
+  const page = renderDocument({
     depth: 1,
     title: `Insights | ${SITE_NAME}`,
     description,
     ogDescription: description,
     canonical: `${SITE_ORIGIN}/insights/`,
     ogType: "website",
-    author: "Juno, J&J Acquisitions' AI analyst",
     main,
     current: "insights",
   });
+  if (/\bAI\b|AI-generated|AI analyst/i.test(htmlText(page))) {
+    throw new Error("insights index contains AI wording");
+  }
+  return page;
 }
 
 function renderArticle(article) {
   const canonical = `${SITE_ORIGIN}/insights/${article.slug}/`;
-  const ogDescription = `AI-generated. ${article.summary}`;
   const body = renderArticleBody(article);
   const main = `<article class="prose">
       <p class="breadcrumb"><a href="../../">Home</a> <span aria-hidden="true">/</span> <a href="../">Insights</a></p>
@@ -316,7 +325,7 @@ function renderArticle(article) {
     depth: 2,
     title: `${article.title} | ${SITE_NAME}`,
     description: article.summary,
-    ogDescription,
+    ogDescription: article.summary,
     canonical,
     ogType: "article",
     author: article.author,

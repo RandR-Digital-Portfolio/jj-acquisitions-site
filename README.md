@@ -17,7 +17,7 @@ Front matter:
 - `author` — `Juno, J&J Acquisitions' AI analyst` for these notes
 - `order` — optional. Same-day articles are listed by this number, lowest first
 
-The body should keep a visible AI-authorship line at the top, as a single italic paragraph beginning `Written by Juno,`. The build lifts that paragraph into the label above the title. Leave reviewer notes and social teasers out of the file.
+The build adds an Analysis kicker above each title and a byline at the end of the page: `Written by` plus the `author` field. Keep that credit out of the Markdown, and leave out reviewer notes, social teasers, and lines such as "reviewed by a human." Summaries are the meta description, so keep them free of an AI label.
 
 ```bash
 npm install

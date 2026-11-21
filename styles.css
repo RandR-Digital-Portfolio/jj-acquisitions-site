@@ -143,11 +143,21 @@ footer {
   color: var(--muted);
   font-size: .88rem;
 }
-.card p.card-author {
+.kicker {
+  margin: 0 0 10px;
   color: var(--accent-dark);
-  font-size: .82rem;
   font-weight: 700;
-  margin: 4px 0 8px;
+  font-size: .78rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.card p.kicker {
+  color: var(--accent-dark);
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  margin: 0 0 8px;
 }
 .insights-list h2 {
   font-size: 1.28rem;
@@ -175,17 +185,6 @@ footer {
   line-height: 1.15;
   letter-spacing: -.03em;
 }
-.ai-label {
-  border-left: 4px solid var(--accent);
-  background: var(--soft);
-  padding: 14px 16px 16px;
-  border-radius: 8px;
-  margin: 0 0 22px;
-}
-.ai-label p {
-  margin: 8px 0 0;
-  color: var(--ink);
-}
 .dateline {
   color: var(--muted);
   margin: 0 0 1.5rem;
@@ -206,6 +205,14 @@ footer {
   border: 0;
   border-top: 1px solid var(--line);
   margin: 1.8rem 0;
+}
+.article-body p.kicker { margin: 0 0 12px; }
+.article-body p.byline {
+  margin: 2.2rem 0 0;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: .92rem;
 }
 .article-body a { overflow-wrap: anywhere; }
 @media (max-width: 760px) {
